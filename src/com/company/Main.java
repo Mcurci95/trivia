@@ -23,11 +23,7 @@ public class Main {
             System.out.println("Correct!");
         } else {
             System.out.println("Wrong!, correct answer is " + question1.getCorrectAnswer());
-        }
-
-
-
-
+        
     }
 
 }
