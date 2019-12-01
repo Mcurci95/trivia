@@ -3,9 +3,11 @@ package com.company;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Scanner;
 
 // Make a subclass of questions be true of false?
 
@@ -27,7 +29,7 @@ public class Question {
         this.type = type;
     }
 
-    public void printQuestion() {
+    void printQuestion() {
         System.out.println(this.question);
         for (int i = 0; i < this.shuffledList.size(); i++) {
             System.out.println("\t" + (i + 1) + ". " + shuffledList.get(i));
@@ -42,7 +44,7 @@ public class Question {
         return shuffledList;
     }
 
-    public Question(JSONObject questionObj) {
+    Question(JSONObject questionObj) {
         this.difficulty = questionObj.getString("difficulty");
         this.question = questionObj.getString("question");
         this.correctAnswer = questionObj.getString("correct_answer");
@@ -60,8 +62,10 @@ public class Question {
         return incorrectAnswerList;
     }
 
-    public boolean test(Integer index) {
-        if (this.shuffledList.get(index - 1) == this.correctAnswer) {
+    boolean test(Scanner reader) {
+
+        int guess = reader.nextInt();
+        if (this.shuffledList.get(guess - 1) == this.correctAnswer) {
             return true;
         }
         return false;
