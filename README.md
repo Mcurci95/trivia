@@ -14,6 +14,6 @@ Coming soon:
     * Entertainment
     * Sports
 2. Implementing difficulty
-3. GUI
+3. User Interface
 4. High Score
 
